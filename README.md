@@ -102,12 +102,34 @@ curl --request GET \
 ```
 
 ### List all Events for an Organization
-Get `/organizations/*name*/events`
+Get `/organizations/*name*/events.json`
 NOTE: filters can be used on this request
 
 ``` bash
 curl --request GET \
-  --url http://localhost:3000/events.json \
+  --url http://localhost:3000/organizations/1/events.json \
   --header 'cache-control: no-cache' \
-  --header 'postman-token: caabc511-bfc4-1f89-0946-fc2a58b31e1c'
+  --header 'postman-token: d3286c45-2061-da0d-3667-c0618c3af0b2'
+```
+
+### List N Events for an Organization
+Get `/organizations/*name*/events.json?count=N`
+NOTE: filters can be used on this request
+
+``` bash
+curl --request GET \
+  --url 'http://localhost:3000/organizations/1/events.json?count=3' \
+  --header 'cache-control: no-cache' \
+  --header 'postman-token: caea6160-9544-9d28-8093-f292d41cd037'
+```
+
+### List N Events with hostname in an Organization
+Get `/organizations/*name*/events.json?count=N&hostname=google.com`
+NOTE: filters can be used on this request
+
+``` bash
+curl --request GET \
+  --url 'http://localhost:3000/organizations/1/events.json?count=1&hostname=google.com' \
+  --header 'cache-control: no-cache' \
+  --header 'postman-token: 6cb7bcef-50c2-3430-1275-be0922ceeaee'
 ```
