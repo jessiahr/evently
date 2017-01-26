@@ -24,6 +24,7 @@ Events are nested under Organizations so to list an organization's events use:
 To list all events from all organizations use the top level events resource:
 
 `GET /events`
+
 NOTE: this endpoint can ONLY list events and can not be used for any other actions
 
 ### Filters:
@@ -37,4 +38,5 @@ Hostname:
 Filter by hostname by sending a param of `hostname` with a value of the hostname string
 
 `/events.json?hostname=google.com`
+
 `/organizations/1/events.json?hostname=google.com`
