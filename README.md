@@ -1,16 +1,18 @@
 # Example Event Logger
 
-# Notes
+## Notes
 I believe this meets the requirements stated in the doc, I made the API respond to both JSON and HTML because I could not tell what "must not expose any pages, should respond to " meant.
 
 I have included an export of my postman API doc (makes testing all my endpoints a lot faster).
 https://www.getpostman.com/
 
-
-
-## setup
+## Setup
 
 To run locally:
+`git clone git@github.com:jessiahr/evently.git`
+
+`cd evently`
+
 `bundle install`
 
 `rake db:create db:migrate db:seed`
@@ -18,6 +20,10 @@ To run locally:
 Run tests:
 
 `rake test`
+
+Run app:
+
+`rails s`
 
 Overview of routes:
 
@@ -100,6 +106,7 @@ curl --request POST \
 
 ### List all Events for all Organizations
 Get `/events.json`
+
 NOTE: filters can be used on this request
 
 ``` bash
@@ -111,6 +118,7 @@ curl --request GET \
 
 ### List all Events for an Organization
 Get `/organizations/*name*/events.json`
+
 NOTE: filters can be used on this request
 
 ``` bash
@@ -122,6 +130,7 @@ curl --request GET \
 
 ### List N Events for an Organization
 Get `/organizations/*name*/events.json?count=N`
+
 NOTE: filters can be used on this request
 
 ``` bash
@@ -133,6 +142,7 @@ curl --request GET \
 
 ### List N Events with hostname in an Organization
 Get `/organizations/*name*/events.json?count=N&hostname=google.com`
+
 NOTE: filters can be used on this request
 
 ``` bash
