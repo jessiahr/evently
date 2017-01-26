@@ -12,3 +12,7 @@ org2 = Organization.create(name: 'Yahoo')
 15.times do
   Event.create(organization_id: org1.id, message: 'A sample event', hostname: "google.com")
 end
+
+15.times do
+  Event.create(organization_id: org2.id, message: 'A sample event', hostname: "yahoo.com")
+end
