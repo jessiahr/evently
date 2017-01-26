@@ -1,5 +1,13 @@
 # Example Event Logger
 
+# Notes
+I believe this meets the requirements stated in the doc, I made the API respond to both JSON and HTML because I could not tell what "must not expose any pages, should respond to " meant.
+
+I have included an export of my postman API doc (makes testing all my endpoints a lot faster).
+https://www.getpostman.com/
+
+
+
 ## setup
 
 To run locally:
