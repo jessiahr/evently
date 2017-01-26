@@ -1,8 +1,12 @@
 # Example Event Logger
 
-## setup
+## Setup
 
 To run locally:
+`git clone git@github.com:jessiahr/evently.git`
+
+`cd evently`
+
 `bundle install`
 
 `rake db:create db:migrate db:seed`
@@ -10,6 +14,10 @@ To run locally:
 Run tests:
 
 `rake test`
+
+Run app:
+
+`rails s`
 
 Overview of routes:
 
