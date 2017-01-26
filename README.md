@@ -41,7 +41,7 @@ Filters can be combined and used together with the organization filter:
 ## Examples of use cases:
 
 ### Create a new organization
-Post to `/organizations` with a root key of `organization`
+Post to `/organizations.json` with a root key of `organization`
 
 ``` bash
 curl --request POST \
@@ -53,7 +53,7 @@ curl --request POST \
 ```
 
 ### List all organizations
-Get `/organizations`
+Get `/organizations.json`
 
 ``` bash
 curl --request GET \
@@ -65,7 +65,7 @@ curl --request GET \
 ```
 
 ### Delete an organization and all of its events
-Delete to `/organizations/*ID*`
+Delete to `/organizations/*ID*.json`
 
 ``` bash
 curl --request DELETE \
@@ -74,4 +74,40 @@ curl --request DELETE \
   --header 'content-type: multipart/form-data; boundary=---011000010111000001101001' \
   --header 'postman-token: 4cc0f91f-132d-3056-227d-ea1b5d969299' \
   --form 'organization[name]=verizon'
+```
+
+### Create a new Event
+Post to `/organizations/*NAME*/events.json` with a root key of `event`
+
+``` bash
+curl --request POST \
+  --url http://localhost:3000/organizations/Google/events.json \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: multipart/form-data; boundary=---011000010111000001101001' \
+  --header 'postman-token: 6de848c4-ff10-7243-390f-6393865906c2' \
+  --form 'event[body]=an event' \
+  --form 'event[hostname]=google' \
+  --form =
+```
+
+### List all Events for all Organizations
+Get `/events.json`
+NOTE: filters can be used on this request
+
+``` bash
+curl --request GET \
+  --url http://localhost:3000/events.json \
+  --header 'cache-control: no-cache' \
+  --header 'postman-token: caabc511-bfc4-1f89-0946-fc2a58b31e1c'
+```
+
+### List all Events for an Organization
+Get `/organizations/*name*/events`
+NOTE: filters can be used on this request
+
+``` bash
+curl --request GET \
+  --url http://localhost:3000/events.json \
+  --header 'cache-control: no-cache' \
+  --header 'postman-token: caabc511-bfc4-1f89-0946-fc2a58b31e1c'
 ```

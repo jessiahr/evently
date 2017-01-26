@@ -5,7 +5,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+
+    @events = Event
     @events = filtered_by_organization(@events)
     @events = filtered_by_result_count(@events)
     @events = filtered_by_hostname(@events)
@@ -68,8 +69,8 @@ class EventsController < ApplicationController
 
   private
   def filtered_by_organization(events)
-    if safe_params.keys.include? "organization_id"
-      events.by_organization_id(safe_params["organization_id"])
+    if @organization
+      events.by_organization_id(@organization.id)
     else
       events
     end
