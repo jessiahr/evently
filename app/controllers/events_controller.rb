@@ -29,11 +29,12 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @event.organization_id = @organization.id
 
     respond_to do |format|
       if @event.save
         format.html { redirect_to organization_event_path(@organization, @event), notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+        format.json { render :show, status: :created, location: organization_event_path(@organization, @event) }
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -101,6 +102,6 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:message, :hostname, :timestamp, :organization_id)
+    params.require(:event).permit(:message, :hostname, :timestamp)
   end
 end
