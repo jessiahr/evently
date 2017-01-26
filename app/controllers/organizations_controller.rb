@@ -65,9 +65,7 @@ class OrganizationsController < ApplicationController
 
   def set_organization
     @organization = Organization.find_by_name(params[:id])
-    if (@organization == nil)
-      @organization = Organization.find(params[:id])
-    end
+    @organization = Organization.find(params[:id]) if @organization.nil?
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

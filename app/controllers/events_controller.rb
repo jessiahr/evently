@@ -5,7 +5,6 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-
     @events = Event
     @events = filtered_by_organization(@events)
     @events = filtered_by_result_count(@events)
@@ -31,7 +30,6 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.organization_id = @organization.id
-
     respond_to do |format|
       if @event.save
         format.html { redirect_to organization_event_path(@organization, @event), notice: 'Event was successfully created.' }
@@ -92,16 +90,16 @@ class EventsController < ApplicationController
     end
   end
 
-    # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
   end
 
+  #filter params
   def safe_params
     params.permit(:organization_id, :count, :hostname)
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  #params for building up an event
   def event_params
     params.require(:event).permit(:message, :hostname, :timestamp)
   end
