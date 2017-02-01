@@ -151,3 +151,18 @@ curl --request GET \
   --header 'cache-control: no-cache' \
   --header 'postman-token: 6cb7bcef-50c2-3430-1275-be0922ceeaee'
 ```
+
+
+
+# New ticket
+
+## DB switch
+  Move from mysql to postgresql
+
+## Foreign endpoint
+  Events can be Foreign
+    If TLD is not in .com .net .edu .gov
+
+  Orgs are Foreign if it has 1 + Foreign event
+
+  Fetch events by is_foreign scope
